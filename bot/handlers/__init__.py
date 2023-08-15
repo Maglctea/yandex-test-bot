@@ -5,6 +5,7 @@ __all__ = [
 from aiogram import Router, F
 from aiogram.filters import CommandStart, Command
 
+from bot.handlers.blog import blog_command
 from bot.handlers.help import help_command, help_func
 from bot.handlers.links import links_command
 from bot.handlers.pictures import pictures, send_selfie, send_school_photo
@@ -43,3 +44,5 @@ def register_user_commands(router: Router) -> None:
         F.action == PicturesMenuActions.BACK
     ))
 
+    # blog
+    router.message.register(blog_command, Command(commands=["blog"]))
