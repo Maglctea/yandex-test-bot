@@ -6,6 +6,7 @@ from aiogram import Router, F
 from aiogram.filters import CommandStart, Command
 
 from bot.handlers.help import help_command, help_func
+from bot.handlers.links import links_command
 from bot.handlers.pictures import pictures, send_selfie, send_school_photo
 from bot.handlers.start import start, start_callback
 from bot.structure.callback_data_states import PicturesMenuCallback, MainMenuActions, PicturesMenuActions, \
@@ -24,6 +25,9 @@ def register_user_commands(router: Router) -> None:
     # help
     router.message.register(help_command, Command(commands=["help"]))
     router.message.register(help_func, F.text.capitalize() == "Помощь")
+
+    # links
+    router.message.register(links_command, Command(commands=["links"]))
 
     # pictures
     router.callback_query.register(pictures, MainMenuCallback.filter(
