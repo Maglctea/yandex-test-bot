@@ -6,6 +6,7 @@ import asyncio
 from aiogram import Bot, Dispatcher
 from aiogram.fsm.storage.memory import MemoryStorage
 from aiogram.types import BotCommand
+from aiogram import types
 
 from bot.bot_texts import BOT_COMMANDS_INFO
 from bot.handlers import *

@@ -38,3 +38,4 @@ LINKS_TEXT = ("Ссылка на проект: https://github.com/Maglctea/yande
 
 # --------PICTURES---------
 PICTURE_SELECTION = "Выберите картинку, которую хотите увидеть"
+SCHOOL_PHOTO_DESCRIPTION = "Фото из школы у меня нет, поэтому вот фото, сделанное во время учёбы"

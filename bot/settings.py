@@ -23,6 +23,7 @@ logger.addHandler(console_handler)
 
 # Dirs
 BASE_DIR = Path(__file__).parent.parent
+MEDIA = Path(Path(__file__).parent, 'media')
 load_dotenv(BASE_DIR / ".env")
 
 
