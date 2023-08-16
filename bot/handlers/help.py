@@ -11,7 +11,7 @@ async def help_func(message: types.Message):
     """
     help main
     :param message:
-    :return:
+    :return SendMessage:
     """
     return await message.answer(
         TEXT_HELP
@@ -23,7 +23,7 @@ async def help_command(message: types.Message, command: CommandObject):
     help command detail
     :param message:
     :param command:
-    :return:
+    :return SendMessage:
     """
     if command.args:
         for cmd in BOT_COMMANDS_INFO:

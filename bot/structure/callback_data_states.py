@@ -4,6 +4,9 @@ from aiogram.filters.callback_data import CallbackData
 
 
 class AudioMenuActions(enum.IntEnum):
+    """
+    Audio menu actions
+    """
     GPT = 1
     DATABASE = 2
     LOVE_STORY = 3
@@ -12,12 +15,15 @@ class AudioMenuActions(enum.IntEnum):
 
 class AudioMenuCallback(CallbackData, prefix="audio_menu"):
     """
-    Statistic callback
+    Audio callback
     """
     action: AudioMenuActions
 
 
 class PicturesMenuActions(enum.IntEnum):
+    """
+    Pictures menu actions
+    """
     SELFIE = 1
     SCHOOL_PHOTO = 2
     BACK = 3
@@ -25,20 +31,20 @@ class PicturesMenuActions(enum.IntEnum):
 
 class PicturesMenuCallback(CallbackData, prefix="pictures_menu"):
     """
-    Statistic callback
+    Pictures menu callback
     """
     action: PicturesMenuActions
 
 
 class MainMenuActions(enum.IntEnum):
     """
-        Statistic actions
+        Main menu actions
     """
     SEE_PICTURES = 1
     SEE_AUDIO = 2
 
 class MainMenuCallback(CallbackData, prefix="main_menu"):
     """
-    Statistic callback
+    Main menu callback
     """
     action: MainMenuActions
