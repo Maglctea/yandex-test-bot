@@ -1,4 +1,8 @@
 # Yandex test quest (aiogram bot)
+## Download 
+```bash
+git clone https://github.com/Maglctea/yandex-test-bot.git
+```
 
 ## installation
 ### Docker
