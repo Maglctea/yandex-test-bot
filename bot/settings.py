@@ -29,5 +29,3 @@ load_dotenv(BASE_DIR / ".env")
 
 # TG
 BOT_KEY = os.getenv("TG_KEY")
-ADMINS_USERNAMES = os.getenv("ADMINS_USERNAMES", "magictea")
-ADMINS_IDS = os.getenv("ADMINS_IDS", "").split(',')

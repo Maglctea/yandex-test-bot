@@ -4,7 +4,7 @@ command help
 from aiogram import types
 from aiogram.filters import CommandObject
 
-from bot.bot_texts import TEXT_HELP, BOT_COMMANDS_INFO
+from bot.bot_texts import TEXT_HELP, BOT_COMMANDS_INFO, LINKS_TEXT, TEXT_BLOG
 
 
 async def help_func(message: types.Message):
@@ -34,3 +34,21 @@ async def help_command(message: types.Message, command: CommandObject):
         else:
             return await message.answer("Команда не найдена")
     return await help_func(message)
+
+
+async def links_command(message: types.Message):
+    """
+    help command detail
+    :param message:
+    :return SendMessage:
+    """
+    return await message.answer(LINKS_TEXT)
+
+
+async def blog_command(message: types.Message):
+    """
+    help command detail
+    :param message:
+    :return SendMessage:
+    """
+    return await message.answer(TEXT_BLOG)

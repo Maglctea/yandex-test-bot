@@ -6,11 +6,9 @@ import asyncio
 from aiogram import Bot, Dispatcher
 from aiogram.fsm.storage.memory import MemoryStorage
 from aiogram.types import BotCommand
-from aiogram import types
 
 from bot.bot_texts import BOT_COMMANDS_INFO
 from bot.handlers import *
-from bot.middleware.permission_check import PermissionCheckMiddleware
 
 from bot.settings import BOT_KEY, logger
 
@@ -29,9 +27,6 @@ async def async_main() -> None:
 
     # add handlers
     register_user_commands(dp)
-
-    # register permission middleware
-    # dp.message.middleware.register(PermissionCheckMiddleware())
 
     await dp.start_polling(bot)
 

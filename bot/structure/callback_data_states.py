@@ -38,10 +38,11 @@ class PicturesMenuCallback(CallbackData, prefix="pictures_menu"):
 
 class MainMenuActions(enum.IntEnum):
     """
-        Main menu actions
+    Main menu actions
     """
     SEE_PICTURES = 1
     SEE_AUDIO = 2
+
 
 class MainMenuCallback(CallbackData, prefix="main_menu"):
     """

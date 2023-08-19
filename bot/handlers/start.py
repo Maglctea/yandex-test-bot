@@ -14,12 +14,3 @@ async def start(message: types.Message) -> None:
         reply_markup=MAIN_BOARD,
     )
     await message.delete()
-
-
-async def start_callback(callback: types.CallbackQuery) -> None:
-
-    await callback.message.answer(
-        GREETING_TEXT,
-        reply_markup=MAIN_BOARD,
-    )
-    await callback.message.delete()
