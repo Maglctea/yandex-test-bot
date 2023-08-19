@@ -1,17 +1,13 @@
 from aiogram import types
-from aiogram.types import InputFile
 
 from bot.bot_texts import PICTURE_SELECTION, SCHOOL_PHOTO_DESCRIPTION
-from bot.settings import MEDIA
+from bot.handlers.start import start
+from bot.settings import MEDIA, logger
+from bot.structure import PicturesMenuCallback, PicturesMenuActions
 from bot.structure.keyboards import PICTURES_BOARD
 
 
-async def pictures(callback: types.CallbackQuery) -> None:
-    """
-    help command detail
-    :param callback:
-    :return:
-    """
+async def picture_select_file(callback: types.CallbackQuery) -> None:
     await callback.message.answer(
         PICTURE_SELECTION,
         reply_markup=PICTURES_BOARD,
@@ -19,35 +15,23 @@ async def pictures(callback: types.CallbackQuery) -> None:
     await callback.message.delete()
 
 
-async def send_photo(callback: types.CallbackQuery, path: str, caption: str = None) -> None:
-    """
-    help command detail
-    :param callback:
-    :param path:
-    :param caption:
-    :return:
-    """
+async def picture_callback_answer(
+        callback: types.CallbackQuery,
+        callback_data: PicturesMenuCallback,
+) -> None:
+    path = None
+    caption = None
+    match callback_data.action:
+        case PicturesMenuActions.SELFIE:
+            path = str(MEDIA) + r'/selfie.jpg'
+        case PicturesMenuActions.SCHOOL_PHOTO:
+            path = str(MEDIA) + r'/school.jpg'
+            caption = SCHOOL_PHOTO_DESCRIPTION
+        case PicturesMenuActions.BACK:
+            return await start(callback.message)
+
     image = types.FSInputFile(path)
+    logger.error(path)
     await callback.message.answer_photo(image, caption, reply_markup=PICTURES_BOARD)
-
-
-async def send_selfie(callback: types.CallbackQuery) -> None:
-    """
-    help command detail
-    :param callback:
-    :return:
-    """
-    path = str(MEDIA) + r'\selfie.jpg'
-    await send_photo(callback, path)
     await callback.message.delete()
 
-
-async def send_school_photo(callback: types.CallbackQuery) -> None:
-    """
-    help command detail
-    :param callback:
-    :return:
-    """
-    path = str(MEDIA) + r'\school.jpg'
-    await send_photo(callback, path, SCHOOL_PHOTO_DESCRIPTION)
-    await callback.message.delete()
