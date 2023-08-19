@@ -2,6 +2,7 @@
 ## Download 
 ```bash
 git clone https://github.com/Maglctea/yandex-test-bot.git
+cd yandex-test-bot
 ```
 
 ## installation
