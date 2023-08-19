@@ -1,9 +1,19 @@
-# ozon_parser_bot
-
-### Документация aiogram (использую beta 3.0.* <a href="https://docs.aiogram.dev/en/dev-3.x/install.html">тут</a>) <br/>
+# Yandex test quest (aiogram bot)
 
 ## installation
-```pip install -r requirements.txt```
+### Docker
+```bash
+docker build -t yandexbot .
+docker run --name yandexbot --restart always yandexbot
+```
 
-## bot start
-```python -m bot```
+### Without docker
+```bash 
+pip install -r requirements.txt
+python -m bot
+```
+
+## Documentation
+`/start` - start working with bot
+
+`/help` - show all bot commands
